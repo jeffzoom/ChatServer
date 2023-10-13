@@ -23,6 +23,8 @@ functional
 -
 mutex
 -
+groupmodel_z.hpp
+../include/server/groupmodel_z.hpp
 friendmodel.hpp
 ../include/server/friendmodel.hpp
 usermodel.hpp
@@ -38,25 +40,45 @@ mysql/mysql.h
 string
 -
 
-../include/server/friendmodel.hpp
+../include/server/model/friendmodel.hpp
 user.hpp
-../include/server/user.hpp
+../include/server/model/user.hpp
 vector
 -
 
-../include/server/offlinemessagemodel.hpp
+../include/server/model/group.hpp
+groupuser.hpp
+../include/server/model/groupuser.hpp
 string
 -
 vector
 -
 
-../include/server/user.hpp
+../include/server/model/groupmodel_z.hpp
+group.hpp
+../include/server/model/group.hpp
+string
+-
+vector
+-
+
+../include/server/model/groupuser.hpp
+user.hpp
+../include/server/model/user.hpp
+
+../include/server/model/offlinemessagemodel.hpp
+string
+-
+vector
+-
+
+../include/server/model/user.hpp
 string
 -
 
-../include/server/usermodel.hpp
+../include/server/model/usermodel.hpp
 user.hpp
-../include/server/user.hpp
+../include/server/model/user.hpp
 
 ../thirdparty/json.hpp
 algorithm
@@ -388,13 +410,13 @@ limits
 type_traits
 -
 
-/home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/src/server/chatserver.cpp
+/home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/chatserver.cpp
 chatserver.hpp
-/home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/src/server/chatserver.hpp
+/home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/chatserver.hpp
 json.hpp
-/home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/src/server/json.hpp
+/home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/json.hpp
 chatservice.hpp
-/home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/src/server/chatservice.hpp
+/home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/chatservice.hpp
 iostream
 -
 functional
@@ -402,49 +424,55 @@ functional
 string
 -
 
-/home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/src/server/chatservice.cpp
+/home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/chatservice.cpp
 chatservice.hpp
-/home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/src/server/chatservice.hpp
+/home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/chatservice.hpp
 public.hpp
-/home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/src/server/public.hpp
+/home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/public.hpp
 muduo/base/Logging.h
 -
 vector
 -
 
-/home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/src/server/db/db_zsq.cpp
+/home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/db/db_zsq.cpp
 db_zsq.h
-/home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/src/server/db/db_zsq.h
+/home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/db/db_zsq.h
 muduo/base/Logging.h
 -
 
-/home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/src/server/friendmodel.cpp
-friendmodel.hpp
-/home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/src/server/friendmodel.hpp
-db_zsq.h
-/home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/src/server/db_zsq.h
-
-/home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/src/server/main.cpp
+/home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/main.cpp
 chatserver.hpp
-/home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/src/server/chatserver.hpp
+/home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/chatserver.hpp
 chatservice.hpp
-/home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/src/server/chatservice.hpp
+/home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/chatservice.hpp
 iostream
 -
 signal.h
 -
 
-/home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/src/server/offlinemessagemodel.cpp
-offlinemessagemodel.hpp
-/home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/src/server/offlinemessagemodel.hpp
+/home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/model/friendmodel.cpp
+friendmodel.hpp
+/home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/model/friendmodel.hpp
 db_zsq.h
-/home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/src/server/db_zsq.h
+/home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/model/db_zsq.h
 
-/home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/src/server/usermodel.cpp
-usermodel.hpp
-/home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/src/server/usermodel.hpp
+/home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/model/groupmodel.cpp
+groupmodel_z.hpp
+/home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/model/groupmodel_z.hpp
 db_zsq.h
-/home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/src/server/db_zsq.h
+/home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/model/db_zsq.h
+
+/home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/model/offlinemessagemodel.cpp
+offlinemessagemodel.hpp
+/home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/model/offlinemessagemodel.hpp
+db_zsq.h
+/home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/model/db_zsq.h
+
+/home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/model/usermodel.cpp
+usermodel.hpp
+/home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/model/usermodel.hpp
+db_zsq.h
+/home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/model/db_zsq.h
 iostream
 -
 

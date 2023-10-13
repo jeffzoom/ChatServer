@@ -4,44 +4,60 @@
 src/server/CMakeFiles/ChatServer.dir/chatserver.cpp.o
  ../include/server/chatserver.hpp
  ../include/server/chatservice.hpp
- ../include/server/friendmodel.hpp
- ../include/server/offlinemessagemodel.hpp
- ../include/server/user.hpp
- ../include/server/usermodel.hpp
+ ../include/server/model/friendmodel.hpp
+ ../include/server/model/group.hpp
+ ../include/server/model/groupmodel_z.hpp
+ ../include/server/model/groupuser.hpp
+ ../include/server/model/offlinemessagemodel.hpp
+ ../include/server/model/user.hpp
+ ../include/server/model/usermodel.hpp
  ../thirdparty/json.hpp
- /home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/src/server/chatserver.cpp
+ /home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/chatserver.cpp
 src/server/CMakeFiles/ChatServer.dir/chatservice.cpp.o
  ../include/public.hpp
  ../include/server/chatservice.hpp
- ../include/server/friendmodel.hpp
- ../include/server/offlinemessagemodel.hpp
- ../include/server/user.hpp
- ../include/server/usermodel.hpp
+ ../include/server/model/friendmodel.hpp
+ ../include/server/model/group.hpp
+ ../include/server/model/groupmodel_z.hpp
+ ../include/server/model/groupuser.hpp
+ ../include/server/model/offlinemessagemodel.hpp
+ ../include/server/model/user.hpp
+ ../include/server/model/usermodel.hpp
  ../thirdparty/json.hpp
- /home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/src/server/chatservice.cpp
+ /home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/chatservice.cpp
 src/server/CMakeFiles/ChatServer.dir/db/db_zsq.cpp.o
  ../include/server/db/db_zsq.h
- /home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/src/server/db/db_zsq.cpp
-src/server/CMakeFiles/ChatServer.dir/friendmodel.cpp.o
- ../include/server/db/db_zsq.h
- ../include/server/friendmodel.hpp
- ../include/server/user.hpp
- /home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/src/server/friendmodel.cpp
+ /home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/db/db_zsq.cpp
 src/server/CMakeFiles/ChatServer.dir/main.cpp.o
  ../include/server/chatserver.hpp
  ../include/server/chatservice.hpp
- ../include/server/friendmodel.hpp
- ../include/server/offlinemessagemodel.hpp
- ../include/server/user.hpp
- ../include/server/usermodel.hpp
+ ../include/server/model/friendmodel.hpp
+ ../include/server/model/group.hpp
+ ../include/server/model/groupmodel_z.hpp
+ ../include/server/model/groupuser.hpp
+ ../include/server/model/offlinemessagemodel.hpp
+ ../include/server/model/user.hpp
+ ../include/server/model/usermodel.hpp
  ../thirdparty/json.hpp
- /home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/src/server/main.cpp
-src/server/CMakeFiles/ChatServer.dir/offlinemessagemodel.cpp.o
+ /home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/main.cpp
+src/server/CMakeFiles/ChatServer.dir/model/friendmodel.cpp.o
  ../include/server/db/db_zsq.h
- ../include/server/offlinemessagemodel.hpp
- /home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/src/server/offlinemessagemodel.cpp
-src/server/CMakeFiles/ChatServer.dir/usermodel.cpp.o
+ ../include/server/model/friendmodel.hpp
+ ../include/server/model/user.hpp
+ /home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/model/friendmodel.cpp
+src/server/CMakeFiles/ChatServer.dir/model/groupmodel.cpp.o
  ../include/server/db/db_zsq.h
- ../include/server/user.hpp
- ../include/server/usermodel.hpp
- /home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/src/server/usermodel.cpp
+ ../include/server/model/group.hpp
+ ../include/server/model/groupmodel_z.hpp
+ ../include/server/model/groupuser.hpp
+ ../include/server/model/user.hpp
+ /home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/model/groupmodel.cpp
+src/server/CMakeFiles/ChatServer.dir/model/offlinemessagemodel.cpp.o
+ ../include/server/db/db_zsq.h
+ ../include/server/model/offlinemessagemodel.hpp
+ /home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/model/offlinemessagemodel.cpp
+src/server/CMakeFiles/ChatServer.dir/model/usermodel.cpp.o
+ ../include/server/db/db_zsq.h
+ ../include/server/model/user.hpp
+ ../include/server/model/usermodel.hpp
+ /home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/model/usermodel.cpp

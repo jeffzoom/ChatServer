@@ -1,4 +1,4 @@
-# Install script for directory: /home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/src
+# Install script for directory: /home/nowcoder/Linux_nc/ChatServer/myChatServer/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/build/src/server/cmake_install.cmake")
+  include("/home/nowcoder/Linux_nc/ChatServer/myChatServer/build/src/server/cmake_install.cmake")
 
 endif()
 

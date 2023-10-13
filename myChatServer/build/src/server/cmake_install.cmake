@@ -1,4 +1,4 @@
-# Install script for directory: /home/nowcoder/Linux_nc/ChatServer_2023/myChatServer/src/server
+# Install script for directory: /home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

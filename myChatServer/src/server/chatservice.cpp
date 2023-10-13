@@ -3,8 +3,8 @@
  * @Author: zsq 1363759476@qq.com
  * @Date: 2023-10-10 21:15:07
  * @LastEditors: zsq 1363759476@qq.com
- * @LastEditTime: 2023-10-12 21:52:27
- * @FilePath: /Linux_nc/ChatServer_2023/myChatServer/src/server/chatservice.cpp
+ * @LastEditTime: 2023-10-13 14:56:48
+ * @FilePath: /Linux_nc/ChatServer/myChatServer/src/server/chatservice.cpp
  * @Descripttion: 
  */
 
@@ -193,17 +193,52 @@ void ChatService::addFriend(const TcpConnectionPtr &conn, json &js, Timestamp ti
 
 // 创建群组业务
 void ChatService::createGroup(const TcpConnectionPtr &conn, json &js, Timestamp time) {
+    int userid = js["id"].get<int>();
+    string name = js["groupname"];
+    string desc = js["groupdesc"];
 
+    // 存储新创建的群组信息
+    Group group(-1, name, desc);
+    if (_groupModel.createGroup(group)) {
+        // 存储群组创建人信息
+        _groupModel.addGroup(userid, group.getId(), "creator");
+    }
 }
 
 // 加入群组业务
 void ChatService::addGroup(const TcpConnectionPtr &conn, json &js, Timestamp time) {
-
+    int userid = js["id"].get<int>();
+    int groupid = js["groupid"].get<int>();
+    _groupModel.addGroup(userid, groupid, "normal");
+    // 要是想客户端接收服务器的响应
+    // 服务器响应参考 ChatService::reg() 的注册成功和注册失败
 }
 
 // 群组聊天业务
 void ChatService::groupChat(const TcpConnectionPtr &conn, json &js, Timestamp time) {
+    int userid = js["id"].get<int>();
+    int groupid = js["groupid"].get<int>();
+    vector<int> useridVec = _groupModel.queryGroupUsers(userid, groupid);
 
+    lock_guard<mutex> lock(_connMutex); // 加锁
+    for (int id : useridVec) {
+
+        auto it = _userConnMap.find(id);
+        if (it != _userConnMap.end()) { // 查看是否在线
+            // 转发群消息
+            it->second->send(js.dump());
+        } else {
+            
+            // // 查询toid是否在线 
+            // User user = _userModel.query(id);
+            // if (user.getState() == "online") {
+            //     _redis.publish(id, js.dump());
+            // } else {
+                // 存储离线群消息
+                _offlineMsgModel.insert(id, js.dump());
+            // }
+        }
+    }
 }
 
 // 处理注销业务

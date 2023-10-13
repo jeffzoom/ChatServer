@@ -3,8 +3,8 @@
  * @Author: zsq 1363759476@qq.com
  * @Date: 2023-10-10 17:21:30
  * @LastEditors: zsq 1363759476@qq.com
- * @LastEditTime: 2023-10-12 21:50:53
- * @FilePath: /Linux_nc/ChatServer_2023/myChatServer/include/server/chatservice.hpp
+ * @LastEditTime: 2023-10-13 15:15:10
+ * @FilePath: /Linux_nc/ChatServer/myChatServer/include/server/chatservice.hpp
  * @Descripttion: 
  */
 
@@ -23,7 +23,7 @@ using namespace muduo;
 using namespace muduo::net;
 
 // #include "redis.hpp"
-// #include "groupmodel.hpp"
+#include "groupmodel_z.hpp"
 #include "friendmodel.hpp"
 #include "usermodel.hpp"
 #include "offlinemessagemodel.hpp"
@@ -63,6 +63,7 @@ public:
     void reset();
     // 获取消息对应的处理器
     MsgHandler getHandler(int msgid);
+    
     // 从redis消息队列中获取订阅的消息
     // void handleRedisSubscribeMessage(int, string);
 
@@ -81,9 +82,9 @@ private:
     UserModel _userModel; // 数据库相关的操作都封装在userModel里
     OfflineMsgModel _offlineMsgModel; // 此对象对离线消息进行增删查操作
     FriendModel _friendModel;
-    // GroupModel _groupModel;
+    GroupModel _groupModel;
 
-    // // redis操作对象
+    // redis操作对象
     // Redis _redis;
 };
 
