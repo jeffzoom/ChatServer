@@ -3,7 +3,7 @@
  * @Author: zsq 1363759476@qq.com
  * @Date: 2023-10-16 11:59:33
  * @LastEditors: zsq 1363759476@qq.com
- * @LastEditTime: 2023-10-19 18:03:14
+ * @LastEditTime: 2023-10-21 10:24:06
  * @FilePath: /Linux_nc/ChatServer/myChatServer/src/client/main.cpp
  * @Descripttion: 
  */
@@ -43,7 +43,7 @@ vector<User> g_currentUserFriendList;
 vector<Group> g_currentUserGroupList;
 
 // 控制主菜单页面程序
-bool isMainMenuRunning = false;
+bool isMainMenuRunning = false; // 全局变量
 
 // 用于读写线程之间的通信
 sem_t rwsem;
@@ -98,7 +98,7 @@ int main(int argc, char **argv) {
     // 初始化读写线程通信用的信号量
     sem_init(&rwsem, 0, 0);
 
-    // 连接服务器成功，启动接收子线程
+    // 连接服务器成功，启动接收子线程，启动接收线程负责接收数据，该线程只启动一次
     std::thread readTask(readTaskHandler, clientfd); // pthread_create
     readTask.detach();                               // pthread_detach 设置线程分离，子线程运行完内核pcb自动回收，不然会资源泄漏
 
@@ -230,6 +230,8 @@ void doLoginResponse(json &responsejs) {
         {
             // 初始化
             g_currentUserGroupList.clear();
+            // 任何时候都要记得先初始化，如果这里不初始化，在用户loginout登出之后，客户端打印登录欢迎界面，还会再一次打印上一个登出用户的好友列表信息，群组列表信息
+            // 业务逻辑漏洞
 
             vector<string> vec1 = responsejs["groups"];
             for (string &groupstr : vec1)
@@ -470,7 +472,7 @@ void creategroup(int clientfd, string str) {
         return;
     }
 
-    string groupname = str.substr(0, idx);
+    string groupname = str.substr(0, idx); // 截取字符串，第一个是初始下标，第二个是长度
     string groupdesc = str.substr(idx + 1, str.size() - idx);
 
     json js;
@@ -501,7 +503,7 @@ void addgroup(int clientfd, string str) {
 }
 // "groupchat" command handler   groupid:message
 void groupchat(int clientfd, string str) {
-    int idx = str.find(":");
+    int idx = str.find(":"); // 找不到:，那就是格式不对
     if (-1 == idx) {
         cerr << "groupchat command invalid!" << endl;
         return;
@@ -535,7 +537,7 @@ void loginout(int clientfd, string) {
     if (-1 == len) {
         cerr << "send loginout msg error -> " << buffer << endl;
     } else {
-        isMainMenuRunning = false;
+        isMainMenuRunning = false; // 全局变量 登出
     }   
 }
 

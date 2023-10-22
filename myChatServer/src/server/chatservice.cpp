@@ -3,7 +3,7 @@
  * @Author: zsq 1363759476@qq.com
  * @Date: 2023-10-10 21:15:07
  * @LastEditors: zsq 1363759476@qq.com
- * @LastEditTime: 2023-10-13 14:56:48
+ * @LastEditTime: 2023-10-21 10:00:58
  * @FilePath: /Linux_nc/ChatServer/myChatServer/src/server/chatservice.cpp
  * @Descripttion: 
  */
@@ -243,7 +243,22 @@ void ChatService::groupChat(const TcpConnectionPtr &conn, json &js, Timestamp ti
 
 // 处理注销业务
 void ChatService::loginout(const TcpConnectionPtr &conn, json &js, Timestamp time) {
+    int userid = js["id"].get<int>();
 
+    {
+        lock_guard<mutex> lock(_connMutex); // 加锁，大括号是作用域
+        auto it = _userConnMap.find(userid);
+        if (it != _userConnMap.end()) {
+            _userConnMap.erase(it);
+        }
+    }
+
+    // 用户注销，相当于就是下线，在redis中取消订阅通道
+    // _redis.unsubscribe(userid); 
+
+    // 更新用户的状态信息
+    User user(userid, "", "", "offline");
+    _userModel.updateState(user);
 }
 
 // 处理客户端异常退出
