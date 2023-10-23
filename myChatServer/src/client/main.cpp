@@ -3,7 +3,7 @@
  * @Author: zsq 1363759476@qq.com
  * @Date: 2023-10-16 11:59:33
  * @LastEditors: zsq 1363759476@qq.com
- * @LastEditTime: 2023-10-21 10:24:06
+ * @LastEditTime: 2023-10-23 14:56:49
  * @FilePath: /Linux_nc/ChatServer/myChatServer/src/client/main.cpp
  * @Descripttion: 
  */
@@ -338,10 +338,26 @@ void showCurrentUserData() {
     }
 
     cout << "----------------------group list----------------------" << endl;
-    if (!g_currentUserGroupList.empty()) { // 如果群组不为空，打印群组信息
-        for (Group &group : g_currentUserGroupList) {
+    // if (!g_currentUserGroupList.empty()) { // 如果群组不为空，打印群组信息
+    //     for (Group &group : g_currentUserGroupList) {
+    //         cout << group.getId() << " " << group.getName() << " " << group.getDesc() << endl;
+    //         for (GroupUser &user : group.getUsers()) {
+    //             cout << user.getId() << " " << user.getName() << " " << user.getState()
+    //                  << " " << user.getRole() << endl;
+    //         }
+    //     }
+    // }
+
+    // 如果群组不为空，打印群组信息
+    cout << "my group list:" << endl;
+    if (!g_currentUserGroupList.empty())
+    {
+        cout << "group list:" << endl;
+        for (Group &group : g_currentUserGroupList)
+        {
             cout << group.getId() << " " << group.getName() << " " << group.getDesc() << endl;
-            for (GroupUser &user : group.getUsers()) {
+            for (GroupUser &user : group.getUsers())
+            {
                 cout << user.getId() << " " << user.getName() << " " << user.getState()
                      << " " << user.getRole() << endl;
             }

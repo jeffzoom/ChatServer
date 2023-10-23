@@ -3,7 +3,7 @@
  * @Author: zsq 1363759476@qq.com
  * @Date: 2023-10-10 17:21:30
  * @LastEditors: zsq 1363759476@qq.com
- * @LastEditTime: 2023-10-13 15:15:10
+ * @LastEditTime: 2023-10-23 10:14:51
  * @FilePath: /Linux_nc/ChatServer/myChatServer/include/server/chatservice.hpp
  * @Descripttion: 
  */
@@ -22,7 +22,7 @@ using namespace std;
 using namespace muduo;
 using namespace muduo::net;
 
-// #include "redis.hpp"
+#include "redis.hpp"
 #include "groupmodel_z.hpp"
 #include "friendmodel.hpp"
 #include "usermodel.hpp"
@@ -65,7 +65,7 @@ public:
     MsgHandler getHandler(int msgid);
     
     // 从redis消息队列中获取订阅的消息
-    // void handleRedisSubscribeMessage(int, string);
+    void handleRedisSubscribeMessage(int, string);
 
 private:
     ChatService();
@@ -85,7 +85,7 @@ private:
     GroupModel _groupModel;
 
     // redis操作对象
-    // Redis _redis;
+    Redis _redis;
 };
 
 #endif

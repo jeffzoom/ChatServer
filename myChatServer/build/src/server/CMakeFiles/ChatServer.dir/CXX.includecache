@@ -23,6 +23,8 @@ functional
 -
 mutex
 -
+redis.hpp
+../include/server/redis.hpp
 groupmodel_z.hpp
 ../include/server/groupmodel_z.hpp
 friendmodel.hpp
@@ -79,6 +81,14 @@ string
 ../include/server/model/usermodel.hpp
 user.hpp
 ../include/server/model/user.hpp
+
+../include/server/redis/redis.hpp
+hiredis/hiredis.h
+-
+thread
+-
+functional
+-
 
 ../thirdparty/json.hpp
 algorithm
@@ -473,6 +483,12 @@ usermodel.hpp
 /home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/model/usermodel.hpp
 db_zsq.h
 /home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/model/db_zsq.h
+iostream
+-
+
+/home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/redis/redis.cpp
+redis.hpp
+/home/nowcoder/Linux_nc/ChatServer/myChatServer/src/server/redis/redis.hpp
 iostream
 -
 

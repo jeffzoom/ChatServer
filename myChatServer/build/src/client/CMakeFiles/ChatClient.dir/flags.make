@@ -6,5 +6,5 @@ CXX_FLAGS = -g
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/nowcoder/Linux_nc/ChatServer/myChatServer/include -I/home/nowcoder/Linux_nc/ChatServer/myChatServer/include/server -I/home/nowcoder/Linux_nc/ChatServer/myChatServer/include/server/db -I/home/nowcoder/Linux_nc/ChatServer/myChatServer/include/server/model -I/home/nowcoder/Linux_nc/ChatServer/myChatServer/thirdparty 
+CXX_INCLUDES = -I/home/nowcoder/Linux_nc/ChatServer/myChatServer/include -I/home/nowcoder/Linux_nc/ChatServer/myChatServer/include/server -I/home/nowcoder/Linux_nc/ChatServer/myChatServer/include/server/db -I/home/nowcoder/Linux_nc/ChatServer/myChatServer/include/server/model -I/home/nowcoder/Linux_nc/ChatServer/myChatServer/include/server/redis -I/home/nowcoder/Linux_nc/ChatServer/myChatServer/thirdparty 
 
