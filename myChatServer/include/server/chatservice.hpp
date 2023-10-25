@@ -3,7 +3,7 @@
  * @Author: zsq 1363759476@qq.com
  * @Date: 2023-10-10 17:21:30
  * @LastEditors: zsq 1363759476@qq.com
- * @LastEditTime: 2023-10-23 10:14:51
+ * @LastEditTime: 2023-10-25 09:05:00
  * @FilePath: /Linux_nc/ChatServer/myChatServer/include/server/chatservice.hpp
  * @Descripttion: 
  */
@@ -40,7 +40,7 @@ class ChatService {
     
 public:
     // 获取单例对象的接口函数
-    static ChatService *instance();
+    static ChatService *instance();                             // 非回调函数
     // 处理登录业务
     void login(const TcpConnectionPtr &conn, json &js, Timestamp time);
     // 处理注册业务
@@ -58,11 +58,11 @@ public:
     // 处理注销业务
     void loginout(const TcpConnectionPtr &conn, json &js, Timestamp time);
     // 处理客户端异常退出
-    void clientCloseException(const TcpConnectionPtr &conn);
+    void clientCloseException(const TcpConnectionPtr &conn);    // 非回调函数
     // 服务器异常，业务重置方法
-    void reset();
+    void reset();                                               // 非回调函数
     // 获取消息对应的处理器
-    MsgHandler getHandler(int msgid);
+    MsgHandler getHandler(int msgid);                           // 非回调函数
     
     // 从redis消息队列中获取订阅的消息
     void handleRedisSubscribeMessage(int, string);

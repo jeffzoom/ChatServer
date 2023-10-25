@@ -3,7 +3,7 @@
  * @Author: zsq 1363759476@qq.com
  * @Date: 2023-10-10 21:15:07
  * @LastEditors: zsq 1363759476@qq.com
- * @LastEditTime: 2023-10-23 15:49:00
+ * @LastEditTime: 2023-10-24 20:24:52
  * @FilePath: /Linux_nc/ChatServer/myChatServer/src/server/chatservice.cpp
  * @Descripttion: 
  */
@@ -14,13 +14,13 @@
 #include <vector>
 using namespace std;
 using namespace muduo;
-
-// 获取单例对象的接口函数
-ChatService *ChatService::instance() {
-    static ChatService service;
-    return &service;
+                                        // instance()涉及到单例设计模式的实现。单例设计模式用于确保一个类只有一个实例，并提供一个全局的访问点以获取该实例。在这里定义了一个名为 ChatService 的类，并提供了获取单例对象的接口函数 instance()。
+// 获取单例对象的接口函数                 // 使用这种方法，您可以通过调用 ChatService::instance() 来获得 ChatService 类的唯一实例，而不需要手动创建多个实例。这对于需要全局访问一个对象的情况非常有用，比如在应用程序中维护一个全局的聊天服务对象，以便不同部分的代码可以访问和共享相同的服务。
+ChatService *ChatService::instance() {  // 这是一个静态成员函数的定义，它属于 ChatService 类。这个函数的目的是返回 ChatService 类的唯一实例指针。
+    static ChatService service;         // 在函数内部定义了一个静态局部变量 service，这意味着它仅在首次调用 instance() 函数时初始化，而后的调用都会返回同一实例。这正是单例设计模式的核心：确保只有一个类的实例存在。
+    return &service;                    // 这一行将静态局部变量 service 的地址返回，因此每次调用 instance() 函数时都返回相同的 ChatService 对象的指针。
 }
-
+                                        
 // 注册消息以及对应的Handler回调操作  绑定和回调，这是oop面向对象很重要的环节
 ChatService::ChatService() {
     
@@ -38,8 +38,7 @@ ChatService::ChatService() {
     _msgHandlerMap.insert({GROUP_CHAT_MSG, std::bind(&ChatService::groupChat, this, _1, _2, _3)});
 
     // 连接redis服务器
-    if (_redis.connect())
-    {
+    if (_redis.connect()) {
         // 设置上报消息的回调
         _redis.init_notify_handler(std::bind(&ChatService::handleRedisSubscribeMessage, this, _1, _2));
     }

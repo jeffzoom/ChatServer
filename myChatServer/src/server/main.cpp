@@ -3,7 +3,7 @@
  * @Author: zsq 1363759476@qq.com
  * @Date: 2023-10-10 17:05:56
  * @LastEditors: zsq 1363759476@qq.com
- * @LastEditTime: 2023-10-22 15:05:35
+ * @LastEditTime: 2023-10-24 17:03:17
  * @FilePath: /Linux_nc/ChatServer/myChatServer/src/server/main.cpp
  * @Descripttion: 
  */
@@ -22,8 +22,7 @@ void resetHandler(int) {
 
 int main (int argc, char *argv[]) {
 
-    if (argc < 3)
-    {
+    if (argc < 3) {
         cerr << "command invalid! example: ./ChatServer 127.0.0.1 6000  or  ./ChatServer 127.0.0.1 6002" << endl;
         exit(-1);
     }
@@ -39,8 +38,9 @@ int main (int argc, char *argv[]) {
     InetAddress addr(ip, port);
     ChatServer server(&loop, addr, "ChatServer");
 
-    server.start();
-    loop.loop();
+    server.start(); // listenfd epoll_ctl=>epoll
+    loop.loop();    // epoll_wait以阻塞方式等待新用户连接，已连接用户的读写事件等
+                    // loop.loop()之后，等待客户端的连接
 
     return 0;
 }
